@@ -172,3 +172,4 @@ Caso haja falhas nos testes, revise a configuração da API ou do ambiente.
 OBS: O uso do Postman para automação de testes facilita a validação da integridade e funcionalidade da API Flask. A coleção de testes proporciona uma abordagem eficaz para garantir a confiabilidade do serviço.
 
 ## Resultados
+<img src="https://github.com/Teixeira007/vue-python-csv-api/blob/main/image_front.png"/>
