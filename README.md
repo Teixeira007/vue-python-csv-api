@@ -120,14 +120,16 @@ O Front estará disponível em http://127.0.0.1:5173/
 export default {
   data() {
     return {
-      query: '',             // Armazena a consulta de pesquisa
-      searchResults: [],     // Armazena os resultados da pesquisa
+      query: '',                                  // Armazena a consulta de pesquisa
+      searchResults: [],                          // Armazena os resultados da pesquisa
+      baseURL: "http://localhost:5000/search?q=", // URL base para a pesquisa
     };
   },
   methods: {
     search() {
       if (this.query.trim()) {
-        fetch(`http://localhost:5000/search?q=${this.query}`)
+        const fullURL = `${this.baseURL}${this.query}`;
+        fetch(fullURL)
           .then(response => response.json())
           .then(data => {
             this.searchResults = data;
@@ -146,6 +148,7 @@ export default {
 - Define o estado do componente, incluindo:
   ```query``` para armazenar a consulta de pesquisa
   ```searchResults``` para armazenar os resultados.
+  ```baseURL``` para armazernar a URL base para a pesquisa
 2. Método search():
 
  - Chamado quando o botão é clicado.

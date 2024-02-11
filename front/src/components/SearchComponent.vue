@@ -20,24 +20,29 @@
 
 <script>
 export default {
+  
+
   data() {
     // Dados do componente
     return {
-      query: '',             // Armazena a consulta de pesquisa
-      searchResults: [],     // Armazena os resultados da pesquisa
+      query: '',                                  // Armazena a consulta de pesquisa
+      searchResults: [],                          // Armazena os resultados da pesquisa
+      baseURL: "http://localhost:5000/search?q=", // URL base para a pesquisa
     };
   },
   methods: {
     // Método chamado quando o botão de enviar é clicado
     search() {
       if (this.query.trim()) {
+        // Construa a URL completa usando a baseURL e a query
+        const fullURL = `${this.baseURL}${this.query}`;
+
         // Faça a requisição para o servidor Flask
-        fetch(`http://localhost:5000/search?q=${this.query}`)
+        fetch(fullURL)
           .then(response => response.json())
           .then(data => {
             // Atualiza os resultados da pesquisa com os dados recebidos
             this.searchResults = data;
-            cy.wait(1000);
           })
           .catch(error => {
             console.error('Error fetching data:', error);
