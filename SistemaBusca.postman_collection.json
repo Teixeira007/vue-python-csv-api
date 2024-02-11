@@ -1,0 +1,51 @@
+{
+	"info": {
+		"_postman_id": "7ce7beb9-b489-4b63-b7a2-5a8d4f20e33e",
+		"name": "SistemaBusca",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20765480",
+		"_collection_link": "https://lively-resonance-128496.postman.co/workspace/New-Team-Workspace~4d5e4278-d20a-4477-91b8-0190d650110f/collection/20765480-7ce7beb9-b489-4b63-b7a2-5a8d4f20e33e?action=share&source=collection_link&creator=20765480"
+	},
+	"item": [
+		{
+			"name": "busca",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/search?q=Bradesco",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"search"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "Bradesco"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
